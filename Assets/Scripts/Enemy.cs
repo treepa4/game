@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
         mPoint = mPoint.OrderBy(point => point.name).ToArray();
 
         exit = GameObject.FindWithTag("Finish");
+        Manager.Instance.RegEnemy(this);
     }
 
      void Update()
@@ -49,6 +50,7 @@ public class Enemy : MonoBehaviour
             if (Vector2.Distance(transform.position, exit.transform.position) < reachThreshold)
             {
                 Destroy(gameObject); // Уничтожаем объект при достижении выхода
+                Manager.Instance.UnRegEnemy(this);
             }
         }
     }

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4940068934154245353}
   - component: {fileID: 6466959769380932274}
   - component: {fileID: 3188424189983888198}
+  - component: {fileID: 1872117740254639811}
   m_Layer: 0
-  m_Name: 13
-  m_TagString: Untagged
+  m_Name: stick
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 9d3683bc58eadd043bd615461b004381, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -130,3 +131,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.14000002, y: 0.029999997}
   m_EdgeRadius: 0
+--- !u!114 &1872117740254639811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2791010740260755825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0926214cfe0e2a489aad6e7dc518d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 5
+  pType: 0

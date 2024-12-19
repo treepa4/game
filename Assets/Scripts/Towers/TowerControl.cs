@@ -10,12 +10,12 @@ public class TowerControl : MonoBehaviour
     float attackRadius;
     [SerializeField]
     Projectile projectile;
-    Enemy targetEnemy=null;
+    Enemy targetEnemy = null;
     float attackCounter;
-    bool isattack = false;
+    bool isAttacking = false;
     void Start()
     {
-        attackCounter = timeBetweenAttacks;
+        // attackCounter = timeBetweenAttacks;
 
         
     }
@@ -42,18 +42,17 @@ public class TowerControl : MonoBehaviour
                 targetEnemy = nearestEnemy;
             }
         }
-
         else
         {
             if (attackCounter <= 0)
             {
-                isattack = true;
+                isAttacking = true;
 
                 attackCounter = timeBetweenAttacks;
             } 
             else
             {
-                isattack = false;
+                isAttacking = false;
 
             }
             if(Vector2.Distance(transform.localPosition, targetEnemy.transform.localPosition) > attackRadius)
@@ -65,9 +64,9 @@ public class TowerControl : MonoBehaviour
         
     }
 
-    public void FixedUpdаte()
+    public void FixedUpdate()
     {
-        if (isattack == true) 
+        if (isAttacking == true) 
         {
             Attack();
         }
@@ -75,9 +74,15 @@ public class TowerControl : MonoBehaviour
     
     public void Attack()
     {
+        if (projectile == null)
+        {
+            Debug.LogError("Projectile prefab is not assigned!");
+            return;
+        }
+
         Debug.Log("Attack triggered");
 
-        isattack = false;
+        isAttacking = false;
         Projectile newProjectile = Instantiate(projectile) as Projectile;
         newProjectile.transform.localPosition = transform.localPosition;
         if (targetEnemy == null)

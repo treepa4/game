@@ -21,13 +21,8 @@ public class Manager : Loader<Manager>
     // int enemiesOnScreen = 0; 
     const float spawnDelay = 0.5f;
     public List<Enemy> EnemyList = new List<Enemy>();
-    
 
-    void Awake()
-    {
-    
 
-    }
     // Start is called before the first frame update
     void Start()
     {

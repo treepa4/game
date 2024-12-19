@@ -25,6 +25,7 @@ public class TowerManager : Loader<TowerManager>
 
             if (hit.collider.tag == "PlaceForTower")
             {
+                hit.collider.tag = "TowerPlaceFull";
                 PlaceTower(hit);
             }
 

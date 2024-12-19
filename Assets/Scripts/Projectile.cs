@@ -19,7 +19,6 @@ public class Projectile : MonoBehaviour
     {
         get
         {
-
             return attackDamage;
         }
 
@@ -28,7 +27,6 @@ public class Projectile : MonoBehaviour
     {
         get
         {
-
             return pType;
         }
 

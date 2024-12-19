@@ -13,23 +13,33 @@ public class TowerControl : MonoBehaviour
     Enemy targetEnemy=null;
     float attackCounter;
     bool isattack = false;
-    // Start is called before the first frame update
     void Start()
     {
+        attackCounter = timeBetweenAttacks;
+
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        attackCounter-= Time.deltaTime;
+        attackCounter -= Time.deltaTime;
         
         if (targetEnemy == null)
         {
-            Enemy nearEnemy = GetNearEnemy();
-            if (GetNearEnemy() != null && Vector2.Distance(transform.localPosition, GetNearEnemy().transform.localPosition) <= attackRadius)
+            Enemy nearestEnemy = GetNearEnemy();
+            // if (nearestEnemy != null)
+            // {
+            //     Debug.Log("Nearest enemy found: " + nearestEnemy.name);
+            // }
+            // else
+            // {
+            //     Debug.Log("No enemies in range");
+            // }
+
+            if (nearestEnemy != null && Vector2.Distance(transform.localPosition, nearestEnemy.transform.localPosition) <= attackRadius)
             {
-                targetEnemy = nearEnemy;
+                targetEnemy = nearestEnemy;
             }
         }
 
@@ -55,7 +65,7 @@ public class TowerControl : MonoBehaviour
         
     }
 
-    public void FixUpdate()
+    public void FixedUpdаte()
     {
         if (isattack == true) 
         {
@@ -65,12 +75,16 @@ public class TowerControl : MonoBehaviour
     
     public void Attack()
     {
+        Debug.Log("Attack triggered");
+
         isattack = false;
         Projectile newProjectile = Instantiate(projectile) as Projectile;
         newProjectile.transform.localPosition = transform.localPosition;
         if (targetEnemy == null)
         {
-            Destroy(projectile);
+            Debug.Log("No target enemy, destroying projectile");
+
+            Destroy(newProjectile);
         }
         else
         {
@@ -81,9 +95,9 @@ public class TowerControl : MonoBehaviour
 
     IEnumerator MoveProjectile(Projectile projectile)
     {
-        while(GetTargetDistance(targetEnemy) > 0.20f && projectile != null && targetEnemy != null )
+        while(GetTargetDistance(targetEnemy) > 0.10f && projectile != null && targetEnemy != null )
         {
-            var dir = targetEnemy.transform.position - transform.position;
+            var dir = targetEnemy.transform.localPosition - transform.localPosition;
             var angleDirect = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             projectile.transform.rotation = Quaternion.AngleAxis(angleDirect, Vector3.forward);
             projectile.transform.localPosition = Vector2.MoveTowards(projectile.transform.localPosition, targetEnemy.transform.localPosition, 5f * Time.deltaTime);
@@ -121,6 +135,8 @@ public class TowerControl : MonoBehaviour
             }
 
         }
+        Debug.Log($"Enemies in range: {enemiesInRange.Count}");
+
         return enemiesInRange; 
     }
 

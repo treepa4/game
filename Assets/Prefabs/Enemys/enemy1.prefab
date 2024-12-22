@@ -173,4 +173,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.97
   nextPoint: 0
+  health: 15
   reachThreshold: 0.1

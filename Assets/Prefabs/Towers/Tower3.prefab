@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.3964382, y: -3.3405833, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe9bfa3a40932442aa3a673d8c79b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 1
-  attackRadius: 4.14
+  timeBetweenAttacks: 0.25
+  attackRadius: 3
   projectile: {fileID: 216185153578638738, guid: a1b2f348316eae44fb03f220f8d63515, type: 3}

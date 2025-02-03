@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb9229d083159b46bb1bed9414d6939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.1
+  speed: 1.3
   nextPoint: 0
-  health: 20
-  amountReward: 10
+  health: 35
+  amountReward: 12
   reachThreshold: 0.1

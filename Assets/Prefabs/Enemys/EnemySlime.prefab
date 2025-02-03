@@ -195,6 +195,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.55
   nextPoint: 0
-  health: 4
+  health: 6
   amountReward: 2
   reachThreshold: 0.1

@@ -103,7 +103,7 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 1
-  fullscreenMode: 3
+  fullscreenMode: 1
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -713,11 +713,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 34befca8-e31d-416c-84a4-4a750b3cfcd7
+  cloudProjectId: 571877d2-37e4-4694-9a99-65e5a6d51c7d
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: scndtry
-  organizationId: unity_924f873079b0d76766fa
+  projectName: My project (1)
+  organizationId: tream624
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

@@ -76,18 +76,18 @@ public class TowerControl : MonoBehaviour
     {
         if (projectile == null)
         {
-            Debug.LogError("Projectile prefab is not assigned!");
+            // Debug.LogError("Projectile prefab is not assigned!");
             return;
         }
 
-        Debug.Log("Attack triggered");
+        // Debug.Log("Attack triggered");
 
         isAttacking = false;
         Projectile newProjectile = Instantiate(projectile) as Projectile;
         newProjectile.transform.localPosition = transform.localPosition;
         if (targetEnemy == null)
         {
-            Debug.Log("No target enemy, destroying projectile");
+            // Debug.Log("No target enemy, destroying projectile");
 
             Destroy(newProjectile);
         }
@@ -140,7 +140,7 @@ public class TowerControl : MonoBehaviour
             }
 
         }
-        Debug.Log($"Enemies in range: {enemiesInRange.Count}");
+        // Debug.Log($"Enemies in range: {enemiesInRange.Count}");
 
         return enemiesInRange; 
     }

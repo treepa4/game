@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
      int nextPoint = 0;
     [SerializeField]
     int health;
+    [SerializeField]
+    int amountReward;
     Collider2D enemycollider;
     public float reachThreshold = 0.1f; // Допустимая погрешность для достижения точки
     GameObject exit;
@@ -75,6 +77,9 @@ public class Enemy : MonoBehaviour
             // Проверяем, достигли ли точки выхода
             if (Vector2.Distance(transform.position, exit.transform.position) < reachThreshold)
             {
+                Manager.Instance.RndEscaped += 1;
+                Manager.Instance.TotalEscaped += 1;
+                Manager.Instance.IsWaveOver();
                 Destroy(gameObject); // Уничтожаем объект при достижении выхода
                 Manager.Instance.UnRegEnemy(this);
             }
@@ -101,10 +106,23 @@ public class Enemy : MonoBehaviour
         }
 
     }
-    public void Die()
-    {
-        isDead = true;
-        enemycollider.enabled = false;
-    }
+public void Die()
+{
+    isDead = true;
+    enemycollider.enabled = false;
+    StartCoroutine(DestroyAfterDelay(0.2f)); // Запускаем корутину с задержкой в 1 секунду
+    Manager.Instance.TotalKilld+=1;
+    Manager.Instance.getMoney(amountReward);
+    Manager.Instance.IsWaveOver();
+
+}
+
+IEnumerator DestroyAfterDelay(float delay)
+{
+    yield return new WaitForSeconds(delay); // Ожидание указанного времени
+    Destroy(gameObject); // Удаление объекта
+    Manager.Instance.UnRegEnemy(this);
+}
+
 
 }

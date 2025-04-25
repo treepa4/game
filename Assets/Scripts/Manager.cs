@@ -98,6 +98,7 @@ public class Manager : Loader<Manager>
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         btn.gameObject.SetActive(false);
         ShowMenu();
     }

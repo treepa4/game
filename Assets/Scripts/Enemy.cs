@@ -60,21 +60,18 @@ public class Enemy : MonoBehaviour
         // Проверка, что объект ещё движется по точкам
         if (nextPoint < mPoint.Length && isDead == false)
         {
-            // Движение к следующей точке
             MoveTowards(mPoint[nextPoint].transform.position);
 
-            // Проверяем, достигли ли текущей цели
             if (Vector2.Distance(transform.position, mPoint[nextPoint].transform.position) < reachThreshold )
             {
-                nextPoint += 1; // Переключаемся на следующую точку
+                nextPoint += 1; 
             }
         }
         // Движение к точке выхода (после последней точки)
         else if (nextPoint == mPoint.Length && isDead == false  )
         {
             MoveTowards(exit.transform.position);
-
-            // Проверяем, достигли ли точки выхода
+            
             if (Vector2.Distance(transform.position, exit.transform.position) < reachThreshold)
             {
                 Manager.Instance.RndEscaped += 1;
